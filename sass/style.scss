@@ -1,0 +1,18 @@
+$main-color: #cd4dd6;
+$style: solid;
+$font-size: 3em;//new sass style
+
+.navbar {
+	border-bottom: {
+		color: $main-color;
+		style: $style;
+	}
+}
+
+a {
+	color: $main-color;
+	font-size: $font-size;//new sass style
+	&:hover {
+		border-bottom: 1px $style;
+	}
+}
