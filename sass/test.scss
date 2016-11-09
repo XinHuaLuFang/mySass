@@ -1,0 +1,241 @@
+@charset "UTF-8";
+
+/* 变量 */
+$fontStack: Helvetica, sans-serif;
+$primaryColor: #333;
+
+body {
+	font-family: $fontStack;
+	color: $primaryColor;
+}
+/* 默认变量 */
+$baseLineHeight: 1.5 !default;
+body {
+	line-height: $baseLineHeight;
+}
+/* 特殊变量 */
+$borderDirection:  top !default;
+$baseFontSize:     12px !default;
+$baseLineHeight:   1.5 !default;
+
+.border-#{$borderDirection} {
+  border-#{$borderDirection}: 1px solid #ccc;
+}
+body {
+  font: #{$baseFontSize}/#{$baseLineHeight};
+}
+/* 多值变量 */
+$linkColor: #08c #333 !default;
+
+a {
+  color: nth($linkColor, 1);
+  &:hover {
+    color: nth($linkColor, 2);
+  }
+}
+
+$headings: (h1: 2em, h2: 1.5em, h3: 1.2em);
+@each $header, $size in $headings {
+  #{$header} {
+    font-size: $size;
+  }
+}
+/* 全局变量 */
+$fontSize: 12px;
+body {
+  $fontSize: 14px !global;
+  font-size: $fontSize;
+}
+p {
+  font-size: $fontSize;
+}
+
+
+/* 嵌套 */
+nav {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	li { display: inline-block; }
+	a {
+		display: block;
+		padding: 6px 12px;
+		text-decoration: none;
+	}
+}
+.fakeshadow {
+  border: {
+    style: solid;
+    left: {
+      width: 4px;
+      color: #888;
+    }
+    right: {
+      width: 2px;
+      color: #ccc;
+    }
+  }
+}
+.parent-1 {
+  color: #f00;
+  .child {
+    width: 100px;
+  }
+}
+.parent-2 {
+  color: #f00;
+  @at-root .child {
+    width: 200px;
+  }
+}
+.parent-3 {
+  color: #f00;
+  @at-root {
+    .child1 {
+      width: 300px;
+    }
+    .child2 {
+      width: 400px;
+    }
+  }
+}
+
+/* 导入 */
+@import 'base.scss';
+
+.body {
+	font-size: 100% Helvetica, sans-serif;
+	background-color: #efefef;
+}
+
+/* mixin */
+@mixin box-sizing($sizing) {
+	-webkit-box-sizing: $sizing;
+	-moz-box-sizing: $sizing;
+	box-sizing: $sizing;
+}
+.box-border {
+	border: 1px solid #ccc;
+	@include box-sizing(border-box);
+}
+
+@mixin horizontal-line($border: 1px dashed #ccc, $padding: 10px) {
+  border-bottom: $border;
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+.imgtext-h li {
+  @include horizontal-line(1px solid #ccc);
+}
+.imgtext-h-product li {
+  @include horizontal-line(1px solid #ccc, 15px);
+}
+
+/* 扩展、继承 */
+.message {
+	border: 1px solid #ccc;
+	padding: 10px;
+	color: #333;
+}
+.success {
+	@extend .message;
+	border-color: green;
+}
+.error {
+	@extend .message;
+	border-color: red;
+}
+.warning {
+	@extend .message;
+	border-color: yellow;
+}
+
+%ir {
+  color: transparent;
+}
+#header {
+  h1 {
+    @extend %ir;
+  }
+}
+
+/* 运算 */
+.container { width: 100%; }
+.article {
+	float: left;
+	width: 600px / 960px * 100%;
+}
+.aside {
+	float: right;
+	width: 300px / 960px * 100%;
+}
+
+/* 颜色 */
+$linkColor: #08c;
+a {
+	text-decoration: none;
+	color: $linkColor;
+	&:hover {
+		color: darken($linkColor, 10%);
+	}
+}
+
+/* 函数 */
+$baseFontsize:  10px !default;
+$gray:          #ccc !default;
+
+@function pxToRem($px) {
+  @return $px / $baseFontsize * 1rem;
+}
+body {
+  font-size: $baseFontsize;
+  color: lighten($gray, 10%);
+}
+.test {
+  font-size: pxToRem(16px);
+  color: darken($gray, 10%);
+}
+
+/* 条件判断及循环 */
+$lte7: true;
+$type: monster;
+
+.ib {
+  display: inline-block;
+  @if $lte7 {
+    *display: inline;
+    *zoom: 1;
+  }
+}
+p {
+  @if $type == ocean {
+    color: blue;
+  } @else if $type == monster {
+    color: green
+  }
+}
+.ibb {
+  font-size: if($lte7, 12px, 16px);
+}
+
+@for $i from 1 through 3 {
+  .item-#{$i} { width: 2em * $i };
+}
+
+$animal-list: puma, sea-slug, egret, salamander;
+@each $animal in $animal-list {
+  .#{$animal}-icon {
+    background-image: url('/img/#{$animal}.png');
+  }
+}
+
+$animal-data: (puma, black, default), (sea-slug, blue, pointer), (egret, white, move);
+@each $animal, $color, $cursor in $animal-data {
+  .#{$animal}-icon {
+    background-image: url('/img/#{$animal}.png');
+    border: 2px solid $color;
+    cursor: $cursor;
+  }
+}

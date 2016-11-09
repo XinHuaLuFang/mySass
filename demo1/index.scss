@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+%message {
+	padding: .5em;
+  margin-bottom: .5em;
+  border-radius: .15em;
+  border: 1px solid;
+}
+
+@mixin message($color) {
+  @extend %message;
+  color: $color;
+  border-color: lighten($color, 20%);
+  background: lighten($color, 40%);
+}
+/* step1 */
+.message-error {
+  @include message(#b94a48);
+}
+
+.message-valid {
+  @include message(#468847);
+}
+
+.message-warning {
+  @include message(#c09853);
+}
+
+.message-info {
+  @include message(#3a87ad);
+}
+/* step2-嵌套列表 */
+$message-types: ((error #b94a48) (valid #468847) (warning #c09853) (info #3a87ad)) !default;
+
+@each $message-type in $message-types {
+  $type:  nth($message-type, 1);
+  $color: nth($message-type, 2);
+  .message-#{$type} {
+    @include message($color);
+  }
+}
+/* step3-使用Sass Map（Sass3.3） */
+$message-types: (
+  error   :  #b94a48,
+  valid   :  #468847,
+  warning :  #c09853,
+  info    :  #3a87ad
+) !default;
+@each $type, $color in $message-types {
+  .message-#{$type} {
+    @include message($color);
+  }
+}
+/* step4-优雅处理错误信息 */
+@mixin message($color) {
+  @if type-of($color) == color {
+    @extend %message;
+    color: $color;
+    border-color: lighten($color, 20%);
+    background: lighten($color, 40%);
+  }
+  @else {
+    @warn "#{$color} is not a color for 'message'";
+  }
+}

@@ -1,0 +1,200 @@
+@charset "UTF-8";
+/* 变量 */
+body {
+  font-family: Helvetica, sans-serif;
+  color: #333; }
+
+/* 默认变量 */
+body {
+  line-height: 1.5; }
+
+/* 特殊变量 */
+.border-top {
+  border-top: 1px solid #ccc; }
+
+body {
+  font: 12px/1.5; }
+
+/* 多值变量 */
+a {
+  color: #08c; }
+  a:hover {
+    color: #333; }
+
+h1 {
+  font-size: 2em; }
+
+h2 {
+  font-size: 1.5em; }
+
+h3 {
+  font-size: 1.2em; }
+
+/* 全局变量 */
+body {
+  font-size: 14px; }
+
+p {
+  font-size: 14px; }
+
+/* 嵌套 */
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+nav li {
+  display: inline-block; }
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none; }
+
+.fakeshadow {
+  border-style: solid;
+  border-left-width: 4px;
+  border-left-color: #888;
+  border-right-width: 2px;
+  border-right-color: #ccc; }
+
+.parent-1 {
+  color: #f00; }
+  .parent-1 .child {
+    width: 100px; }
+
+.parent-2 {
+  color: #f00; }
+  .child {
+    width: 200px; }
+
+.parent-3 {
+  color: #f00; }
+  .child1 {
+    width: 300px; }
+
+  .child2 {
+    width: 400px; }
+
+/* 导入 */
+.html,
+.body,
+.ul,
+.ol {
+  margin: 0;
+  padding: 0; }
+
+.body {
+  font-size: 100% Helvetica, sans-serif;
+  background-color: #efefef; }
+
+/* mixin */
+.box-border {
+  border: 1px solid #ccc;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.imgtext-h li {
+  border-bottom: 1px solid #ccc;
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.imgtext-h-product li {
+  border-bottom: 1px solid #ccc;
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+/* 扩展、继承 */
+.message, .success, .error, .warning {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333; }
+
+.success {
+  border-color: green; }
+
+.error {
+  border-color: red; }
+
+.warning {
+  border-color: yellow; }
+
+#header h1 {
+  color: transparent; }
+
+/* 运算 */
+.container {
+  width: 100%; }
+
+.article {
+  float: left;
+  width: 62.5%; }
+
+.aside {
+  float: right;
+  width: 31.25%; }
+
+/* 颜色 */
+a {
+  text-decoration: none;
+  color: #08c; }
+  a:hover {
+    color: #006699; }
+
+/* 函数 */
+body {
+  font-size: 10px;
+  color: #e6e6e6; }
+
+.test {
+  font-size: 1.6rem;
+  color: #b3b3b3; }
+
+/* 条件判断及循环 */
+.ib {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
+
+p {
+  color: green; }
+
+.ibb {
+  font-size: 12px; }
+
+.item-1 {
+  width: 2em; }
+
+.item-2 {
+  width: 4em; }
+
+.item-3 {
+  width: 6em; }
+
+.puma-icon {
+  background-image: url("/img/puma.png"); }
+
+.sea-slug-icon {
+  background-image: url("/img/sea-slug.png"); }
+
+.egret-icon {
+  background-image: url("/img/egret.png"); }
+
+.salamander-icon {
+  background-image: url("/img/salamander.png"); }
+
+.puma-icon {
+  background-image: url("/img/puma.png");
+  border: 2px solid black;
+  cursor: default; }
+
+.sea-slug-icon {
+  background-image: url("/img/sea-slug.png");
+  border: 2px solid blue;
+  cursor: pointer; }
+
+.egret-icon {
+  background-image: url("/img/egret.png");
+  border: 2px solid white;
+  cursor: move; }
+
+/*# sourceMappingURL=test.css.map */
