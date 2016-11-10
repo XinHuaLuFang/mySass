@@ -13,3 +13,6 @@ sass中所有的.scss文件都可以转译成.css文件，并且都放在了css�
 ```
 sass -watch sass\:css\
 ```
+
+# 参考资料
+- [x] [Sass:Mixin还是Placeholder](http://www.w3cplus.com/preprocessor/sass-mixin-placeholder.html)
