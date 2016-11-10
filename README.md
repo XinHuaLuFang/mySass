@@ -15,4 +15,14 @@ sass -watch sass\:css\
 ```
 
 # 参考资料
-- [x] [Sass:Mixin还是Placeholder](http://www.w3cplus.com/preprocessor/sass-mixin-placeholder.html)
+
+### 基础
+* [SASS用法指南](http://www.ruanyifeng.com/blog/2012/06/sass.html)
+* [理解Sass的选择占位符%placeholder](http://www.w3cplus.com/preprocessor/understanding-placeholder-selectors.html)
+* [Sass:Mixin还是Placeholder](http://www.w3cplus.com/preprocessor/sass-mixin-placeholder.html)
+* [Sass初级：定义好的变量名](http://www.w3cplus.com/preprocessor/beginner/variable-naming.html)
+
+### 进阶
+* [Sass进阶](http://www.w3cplus.com/preprocessor/sass-advanced.html)
+* [管理Sass项目文件结构](http://www.w3cplus.com/preprocessor/architecture-sass-project.html)
+* [Sass编写组件](http://www.w3cplus.com/preprocessor/sass-component-10-minutes.html)
